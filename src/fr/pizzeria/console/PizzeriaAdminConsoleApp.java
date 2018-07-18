@@ -57,6 +57,26 @@ public class PizzeriaAdminConsoleApp {
 				break;
 			case 3:
 				System.out.println("***** Mise à jour d'une pizza *****");
+				System.out.println("");
+				Affichage.affichageListe(pizzas);
+				System.out.println("");
+				System.out.println("Veuillez choisir le code de la pizza à modifier :");
+				String codeAModifier = sc.next();
+				System.out.println("Veuillez saisir le nouveau code :");
+				String codeModifie = sc.next();
+				System.out.println("Veuillez saisir le nouveau nom (sans espace) :");
+				String libelleModifie = sc.next();
+				System.out.println("Veuillez saisir le prix :");
+				String prixModifieString = sc.next();
+				double priModifie = Double.parseDouble(prixModifieString);  // bug Scanner
+				for (int i=0; i<pizzas.length; i++) {
+					if (pizzas[i].getCode().equals(codeAModifier)){
+						pizzas[i].setCode(codeModifie);
+						pizzas[i].setLibelle(libelleModifie);
+						pizzas[i].setPrix(priModifie);
+					}
+				}
+				Affichage.affichageListe(pizzas);
 				break;
 			case 4:
 				System.out.println("***** Suppression d'une pizza *****");
