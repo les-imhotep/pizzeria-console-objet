@@ -7,6 +7,8 @@ public class Pizza {
 	String libelle;
 	double prix;
 	
+	static int compteur;
+	
 	/* ------ Constructeurs ------ */
 	
 	public Pizza (){
@@ -14,6 +16,8 @@ public class Pizza {
 	}
 	
 	public Pizza (String code, String libelle, double prix){
+		compteur++;
+		this.id = compteur;
 		this.code = code;
 		this.libelle = libelle;
 		this.prix = prix;
