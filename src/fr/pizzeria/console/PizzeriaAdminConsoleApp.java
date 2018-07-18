@@ -5,13 +5,13 @@ import fr.pizzeria.model.Pizza;
 
 public class PizzeriaAdminConsoleApp {
 
-	
-	
+
+
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
 		int choix;
-		
+
 		Pizza[] pizzas = new Pizza[8];
 		pizzas[0] = new Pizza (0, "PEP", "Pépéroni", 12.50);
 		pizzas[1] = new Pizza (1, "MAR", "Margherita", 14.00);
@@ -21,9 +21,10 @@ public class PizzeriaAdminConsoleApp {
 		pizzas[5] = new Pizza (5, "SAV", "La Savoyarde", 13.00);
 		pizzas[6] = new Pizza (6, "ORI", "L'Orientale", 13.50);
 		pizzas[7] = new Pizza (7, "IND", "L'indienne", 14.00);
-		
+
 		Pizza[] pizzasTemp = null;
-		
+		Pizza[] pizzasTemp2 = null;
+
 
 		do{
 			Affichage.affichageMenu();
@@ -46,7 +47,7 @@ public class PizzeriaAdminConsoleApp {
 				System.out.println("Veuillez saisir le prix :");
 				String newPrixString = sc.next();
 				double newPrix = Double.parseDouble(newPrixString);  // bug Scanner
-				
+
 				pizzasTemp = new Pizza[pizzas.length + 1];
 				for (int i=0; i<pizzas.length; i++){
 					pizzasTemp[i] = pizzas[i];
@@ -80,6 +81,24 @@ public class PizzeriaAdminConsoleApp {
 				break;
 			case 4:
 				System.out.println("***** Suppression d'une pizza *****");
+				System.out.println("");
+				Affichage.affichageListe(pizzas);
+				System.out.println("");
+				System.out.println("Veuillez choisir le code de la pizza à supprimer :");
+				String codeASupprimer = sc.next();
+				for (int i=0; i<pizzas.length; i++) {
+					if (pizzas[i].getCode().equals(codeASupprimer)){
+						pizzasTemp2 = new Pizza[pizzas.length - 1];
+						for (int j=0; j<i; j++){
+							pizzasTemp2[j] = pizzas[j];
+						}
+						for (int j=i + 1; j<pizzas.length; j++){
+							pizzasTemp2[j-1] = pizzas[j];
+						}
+						pizzas = pizzasTemp2;
+						Affichage.affichageListe(pizzas);
+					}
+				}
 				break;
 			case 99:
 				System.out.println("***** Au revoir *****");
