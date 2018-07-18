@@ -25,8 +25,8 @@ public class Affichage {
 
 		for(int i=0; i<pizzas.length; i++) {
 			
-			String prixFormatte = formatteur.format(pizzas[i].prix);
-			System.out.println(pizzas[i].code + " -> " + pizzas[i].libelle + "(" + prixFormatte + "€)");
+			String prixFormatte = formatteur.format(pizzas[i].getPrix());
+			System.out.println(pizzas[i].getCode() + " -> " + pizzas[i].getLibelle() + "(" + prixFormatte + "€)");
 		}
 
 	}

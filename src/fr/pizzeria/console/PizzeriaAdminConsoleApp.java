@@ -22,6 +22,8 @@ public class PizzeriaAdminConsoleApp {
 		pizzas[6] = new Pizza (6, "ORI", "L'Orientale", 13.50);
 		pizzas[7] = new Pizza (7, "IND", "L'indienne", 14.00);
 		
+		Pizza[] pizzasTemp = null;
+		
 
 		do{
 			Affichage.affichageMenu();
@@ -36,6 +38,22 @@ public class PizzeriaAdminConsoleApp {
 				break;
 			case 2:
 				System.out.println("***** Ajout d'une nouvelle pizza *****");
+				System.out.println("");
+				System.out.println("Veuillez saisir le code :");
+				String newCode = sc.next();
+				System.out.println("Veuillez saisir le nom (sans espace) :");
+				String newNom = sc.next();
+				System.out.println("Veuillez saisir le prix :");
+				String newPrixString = sc.next();
+				double newPrix = Double.parseDouble(newPrixString);  // bug Scanner
+				
+				pizzasTemp = new Pizza[pizzas.length + 1];
+				for (int i=0; i<pizzas.length; i++){
+					pizzasTemp[i] = pizzas[i];
+				}
+				pizzasTemp[pizzas.length] = new Pizza (newCode, newNom, newPrix);
+				pizzas = pizzasTemp;
+				Affichage.affichageListe(pizzas);
 				break;
 			case 3:
 				System.out.println("***** Mise à jour d'une pizza *****");
