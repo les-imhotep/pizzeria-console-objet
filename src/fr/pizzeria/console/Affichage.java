@@ -1,7 +1,6 @@
 package fr.pizzeria.console;
 
-import java.text.DecimalFormat;
-
+import formatage.StringUtils;
 import fr.pizzeria.model.Pizza;
 
 public class Affichage {
@@ -20,12 +19,9 @@ public class Affichage {
 	}
 
 	public static void affichageListe(Pizza[] pizzas){
-		
-		DecimalFormat formatteur = new DecimalFormat("0.00");
 
 		for(int i=0; i<pizzas.length; i++) {
-			
-			String prixFormatte = formatteur.format(pizzas[i].getPrix());
+			String prixFormatte = StringUtils.format(pizzas[i].getPrix(), "0.00");
 			System.out.println(pizzas[i].getCode() + " -> " + pizzas[i].getLibelle() + "(" + prixFormatte + "€)");
 		}
 
