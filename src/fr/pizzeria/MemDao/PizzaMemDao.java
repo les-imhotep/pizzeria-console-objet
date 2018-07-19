@@ -1,17 +1,41 @@
 package fr.pizzeria.MemDao;
 
-import fr.pizzeria.model.Pizza;
+public class PizzaMemDao implements IPizzaDao {
 
-public class PizzaMemDao {
-	
-	public interface IPizzaDao {
+	@Override
+	public Pizza[] findAllPizzas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void saveNewPizza(Pizza pizza) {
+		// TODO Auto-generated method stub
 		
-		Pizza[] findAllPizzas ();
-		void saveNewPizza(Pizza pizza);
-		void updatePizza(String codePizza, Pizza pizza);
-		void deletePizza(String codePizza);
-		Pizza findPizzaByCode(String codePizza);
-		boolean pizzaExists(String codePizza);
+	}
+
+	@Override
+	public void updatePizza(String codePizza, Pizza pizza) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deletePizza(String codePizza) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Pizza findPizzaByCode(String codePizza) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean pizzaExists(String codePizza) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
