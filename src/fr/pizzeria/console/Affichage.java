@@ -1,8 +1,5 @@
 package fr.pizzeria.console;
 
-import formatage.StringUtils;
-import fr.pizzeria.model.Pizza;
-
 public class Affichage {
 
 	public static void affichageMenu(){
@@ -18,14 +15,6 @@ public class Affichage {
 
 	}
 
-	public static void affichageListe(Pizza[] pizzas){
-
-		for(int i=0; i<pizzas.length; i++) {
-			String prixFormatte = StringUtils.format(pizzas[i].getPrix(), "0.00");
-			System.out.println(pizzas[i].getCode() + " -> " + pizzas[i].getLibelle() + "(" + prixFormatte + "€)");
-		}
-
-	}
 
 }
 

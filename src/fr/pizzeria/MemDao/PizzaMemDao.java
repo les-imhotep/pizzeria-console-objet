@@ -1,6 +1,5 @@
 package fr.pizzeria.MemDao;
 
-import fr.pizzeria.console.Affichage;
 import fr.pizzeria.model.Pizza;
 
 public class PizzaMemDao implements IPizzaDao {
@@ -66,7 +65,6 @@ public class PizzaMemDao implements IPizzaDao {
 					pizzasTemp2[j-1] = pizzas[j];
 				}
 				pizzas = pizzasTemp2;
-				Affichage.affichageListe(findAllPizzas());
 			}
 		}
 		
