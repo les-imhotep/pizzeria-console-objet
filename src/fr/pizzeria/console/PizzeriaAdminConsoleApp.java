@@ -38,7 +38,6 @@ public class PizzeriaAdminConsoleApp {
 				System.out.println("Veuillez saisir le prix :");
 				String newPrixString = sc.next();
 				double newPrix = Double.parseDouble(newPrixString);  // bug Scanner
-				
 				Pizza newPizza = new Pizza(newCode, newLibelle, newPrix);
 				pizzaMemDao.saveNewPizza(newPizza);
 				Affichage.affichageListe(pizzaMemDao.findAllPizzas());
@@ -58,33 +57,19 @@ public class PizzeriaAdminConsoleApp {
 				System.out.println("Veuillez saisir le prix :");
 				String prixModifieString = sc.next();
 				double prixModifie = Double.parseDouble(prixModifieString);  // bug Scanner
-				
 				Pizza updatePizza = new Pizza(codeModifie, libelleModifie, prixModifie);
 				pizzaMemDao.updatePizza(codeAModifier, updatePizza);
-				
 				Affichage.affichageListe(pizzaMemDao.findAllPizzas());
 				break;
-			/*case 4:
+			case 4:
 				System.out.println("***** Suppression d'une pizza *****");
 				System.out.println("");
-				Affichage.affichageListe(pizzas);
+				Affichage.affichageListe(pizzaMemDao.findAllPizzas());
 				System.out.println("");
 				System.out.println("Veuillez choisir le code de la pizza à supprimer :");
 				String codeASupprimer = sc.next();
-				for (int i=0; i<pizzas.length; i++) {
-					if (pizzas[i].getCode().equals(codeASupprimer)){
-						pizzasTemp2 = new Pizza[pizzas.length - 1];
-						for (int j=0; j<i; j++){
-							pizzasTemp2[j] = pizzas[j];
-						}
-						for (int j=i + 1; j<pizzas.length; j++){
-							pizzasTemp2[j-1] = pizzas[j];
-						}
-						pizzas = pizzasTemp2;
-						Affichage.affichageListe(pizzas);
-					}
-				}
-				break;*/
+				pizzaMemDao.deletePizza(codeASupprimer);
+				break;
 			case 99:
 				System.out.println("***** Au revoir *****");
 				break;

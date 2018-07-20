@@ -1,5 +1,6 @@
 package fr.pizzeria.MemDao;
 
+import fr.pizzeria.console.Affichage;
 import fr.pizzeria.model.Pizza;
 
 public class PizzaMemDao implements IPizzaDao {
@@ -54,7 +55,20 @@ public class PizzaMemDao implements IPizzaDao {
 
 	@Override
 	public void deletePizza(String codePizza) {
-		// TODO Auto-generated method stub
+		
+		for (int i=0; i<pizzas.length; i++) {
+			if (pizzas[i].getCode().equals(codePizza)){
+				pizzasTemp2 = new Pizza[pizzas.length - 1];
+				for (int j=0; j<i; j++){
+					pizzasTemp2[j] = pizzas[j];
+				}
+				for (int j=i + 1; j<pizzas.length; j++){
+					pizzasTemp2[j-1] = pizzas[j];
+				}
+				pizzas = pizzasTemp2;
+				Affichage.affichageListe(findAllPizzas());
+			}
+		}
 		
 	}
 
