@@ -41,7 +41,14 @@ public class PizzaMemDao implements IPizzaDao {
 
 	@Override
 	public void updatePizza(String codePizza, Pizza pizza) {
-		// TODO Auto-generated method stub
+		
+		for (int i=0; i<pizzas.length; i++) {
+			if (pizzas[i].getCode().equals(codePizza)){
+				pizzas[i].setCode(pizza.getCode());
+				pizzas[i].setLibelle(pizza.getLibelle());
+				pizzas[i].setPrix(pizza.getPrix());
+			}
+		}
 		
 	}
 
