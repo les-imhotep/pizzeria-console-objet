@@ -5,6 +5,8 @@ import fr.pizzeria.model.Pizza;
 public class PizzaMemDao implements IPizzaDao {
 	
 	private Pizza[] pizzas;
+	private Pizza[] pizzasTemp = null;
+	private	Pizza[] pizzasTemp2 = null;
 	
 	public PizzaMemDao () {
 		
@@ -27,7 +29,13 @@ public class PizzaMemDao implements IPizzaDao {
 
 	@Override
 	public void saveNewPizza(Pizza pizza) {
-		// TODO Auto-generated method stub
+
+		pizzasTemp = new Pizza[pizzas.length + 1];
+		for (int i=0; i<pizzas.length; i++){
+			pizzasTemp[i] = pizzas[i];
+		}
+		pizzasTemp[pizzas.length] = pizza;
+		pizzas = pizzasTemp;
 		
 	}
 

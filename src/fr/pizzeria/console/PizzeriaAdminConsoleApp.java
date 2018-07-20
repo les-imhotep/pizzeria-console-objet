@@ -13,10 +13,8 @@ public class PizzeriaAdminConsoleApp {
 
 		Scanner sc = new Scanner(System.in);
 		int choix;
-		
+
 		PizzaMemDao pizzaMemDao = new PizzaMemDao ();
-		Pizza[] pizzasTemp = null;
-		Pizza[] pizzasTemp2 = null;
 
 
 		do{
@@ -30,7 +28,7 @@ public class PizzeriaAdminConsoleApp {
 				Affichage.affichageListe(pizzaMemDao.findAllPizzas());
 				System.out.println("");
 				break;
-			/*case 2:
+			case 2:
 				System.out.println("***** Ajout d'une nouvelle pizza *****");
 				System.out.println("");
 				System.out.println("Veuillez saisir le code :");
@@ -40,16 +38,13 @@ public class PizzeriaAdminConsoleApp {
 				System.out.println("Veuillez saisir le prix :");
 				String newPrixString = sc.next();
 				double newPrix = Double.parseDouble(newPrixString);  // bug Scanner
-
-				pizzasTemp = new Pizza[pizzas.length + 1];
-				for (int i=0; i<pizzas.length; i++){
-					pizzasTemp[i] = pizzas[i];
-				}
-				pizzasTemp[pizzas.length] = new Pizza (newCode, newNom, newPrix);
-				pizzas = pizzasTemp;
-				Affichage.affichageListe(pizzas);
+				Pizza newPizza = new Pizza(newCode, newNom, newPrix);
+				
+				pizzaMemDao.saveNewPizza(newPizza);
+				Affichage.affichageListe(pizzaMemDao.findAllPizzas());
 				break;
-			case 3:
+
+				/*case 3:
 				System.out.println("***** Mise à jour d'une pizza *****");
 				System.out.println("");
 				Affichage.affichageListe(pizzas);
