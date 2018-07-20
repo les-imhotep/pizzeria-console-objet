@@ -3,7 +3,6 @@ package fr.pizzeria.console;
 import java.util.Scanner;
 
 import fr.pizzeria.MemDao.PizzaMemDao;
-import fr.pizzeria.model.Pizza;
 import service.*;
 
 public class PizzeriaAdminConsoleApp {
@@ -31,12 +30,15 @@ public class PizzeriaAdminConsoleApp {
 				listerPizza.executeUC(sc, pizzaMemDao);
 				break;
 			case 2:
+				listerPizza.executeUC(sc, pizzaMemDao);
 			    ajouterPizza.executeUC(sc, pizzaMemDao);
 				break;
 			case 3:
+				listerPizza.executeUC(sc, pizzaMemDao);
 				modifierPizza.executeUC(sc, pizzaMemDao);
 				break;
 			case 4:
+				listerPizza.executeUC(sc, pizzaMemDao);
 				supprimerPizza.executeUC(sc, pizzaMemDao);
 				break;
 			case 99:
