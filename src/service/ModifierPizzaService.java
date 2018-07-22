@@ -3,6 +3,7 @@ package service;
 import java.util.Scanner;
 
 import fr.pizzeria.MemDao.IPizzaDao;
+import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
 public class ModifierPizzaService extends MenuService{
@@ -17,10 +18,12 @@ public class ModifierPizzaService extends MenuService{
 		String codeModifie = sc.next();
 		System.out.println("Veuillez saisir le nouveau nom (sans espace) :");
 		String libelleModifie = sc.next();
-		System.out.println("Veuillez saisir le prix :");
+		System.out.println("Veuillez saisir le nouveau prix :");
 		String prixModifieString = sc.next();
 		double prixModifie = Double.parseDouble(prixModifieString);  // bug Scanner
-		Pizza updatePizza = new Pizza(codeModifie, libelleModifie, prixModifie);
+		System.out.println("Veuillez saisir la nouvelle catégorie :");
+		CategoriePizza categorieModifie = CategoriePizza.valueOf(sc.next());;
+		Pizza updatePizza = new Pizza(codeModifie, libelleModifie, prixModifie, categorieModifie);
 		pizzaDao.updatePizza(codeAModifier, updatePizza);		
 	}
 

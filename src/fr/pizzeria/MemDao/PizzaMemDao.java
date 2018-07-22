@@ -3,25 +3,24 @@ package fr.pizzeria.MemDao;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
 public class PizzaMemDao implements IPizzaDao {
 	
 	private List<Pizza> pizzas;
-	//private Pizza[] pizzasTemp = null;
-	//private	Pizza[] pizzasTemp2 = null;
 	
 	public PizzaMemDao () {
 		
 		pizzas = new ArrayList<Pizza>();
-		pizzas.add(new Pizza (0, "PEP", "Pépéroni", 12.50));
-		pizzas.add(new Pizza (1, "MAR", "Margherita", 14.00));
-		pizzas.add(new Pizza (2, "REI", "La Reine", 11.50));
-		pizzas.add(new Pizza (3, "FRO", "La 4 fromages", 12.00));
-		pizzas.add(new Pizza (4, "CAN", "La Cannibale", 12.50));
-		pizzas.add(new Pizza (5, "SAV", "La Savoyarde", 13.00));
-		pizzas.add(new Pizza (6, "ORI", "L'Orientale", 13.50));
-		pizzas.add(new Pizza (7, "IND", "L'indienne", 14.00));
+		pizzas.add(new Pizza (0, "PEP", "Pépéroni", 12.50, CategoriePizza.VIANDE));
+		pizzas.add(new Pizza (1, "MAR", "Margherita", 14.00, CategoriePizza.SANS_VIANDE));
+		pizzas.add(new Pizza (2, "REI", "La Reine", 11.50, CategoriePizza.VIANDE));
+		pizzas.add(new Pizza (3, "FRO", "La 4 fromages", 12.00, CategoriePizza.SANS_VIANDE));
+		pizzas.add(new Pizza (4, "CAN", "La Cannibale", 12.50, CategoriePizza.VIANDE));
+		pizzas.add(new Pizza (5, "SAV", "La Savoyarde", 13.00, CategoriePizza.VIANDE));
+		pizzas.add(new Pizza (6, "ORI", "L'Orientale", 13.50, CategoriePizza.VIANDE));
+		pizzas.add(new Pizza (7, "IND", "L'indienne", 14.00, CategoriePizza.VIANDE));
 		
 	}
 
@@ -44,6 +43,7 @@ public class PizzaMemDao implements IPizzaDao {
 				pizzas.get(i).setCode(pizza.getCode());
 				pizzas.get(i).setLibelle(pizza.getLibelle());
 				pizzas.get(i).setPrix(pizza.getPrix());
+				pizzas.get(i).setCategorie(pizza.getCategorie());
 			}
 		}
 		
