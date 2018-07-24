@@ -22,12 +22,12 @@ public class ListerPizzaService extends MenuService{
 
 		String categorieString = scan.nextLine();
 		int categorie = Integer.parseInt(categorieString);  // bug Scanner
-		
+
 		CategoriePizza selectedCategorie = CategoriePizza.valueOf(categorie);
 
 		for(int i=0; i<pizzaDao.findAllPizzas().size(); i++) {
 			String prixFormatte = StringUtils.format(pizzaDao.findAllPizzas().get(i).getPrix(), "0.00");
-			
+
 			if (selectedCategorie==null || pizzaDao.findAllPizzas().get(i).getCategorie().equals(selectedCategorie)){
 				System.out.println(pizzaDao.findAllPizzas().get(i).getCode() + " -> " + 
 						pizzaDao.findAllPizzas().get(i).getLibelle() + " -> " +
@@ -35,7 +35,23 @@ public class ListerPizzaService extends MenuService{
 						prixFormatte + "€");
 			}
 		}
-		System.out.println("");
+
+		//		System.out.println("Veuillez saisir la catégorie ");
+		//		System.out.println("(Viande, Poisson, Sans viande ou Toutes) :\n");
+		//		String libelle = scan.nextLine();
+		//
+		//		CategoriePizza selectedCategorie = CategoriePizza.valueOfLibelle(libelle);
+		//
+		//		for(int i=0; i<pizzaDao.findAllPizzas().size(); i++) {
+		//			String prixFormatte = StringUtils.format(pizzaDao.findAllPizzas().get(i).getPrix(), "0.00");
+		//
+		//			if (selectedCategorie==null || pizzaDao.findAllPizzas().get(i).getCategorie().equals(selectedCategorie)){
+		//				System.out.println(pizzaDao.findAllPizzas().get(i).getCode() + " -> " + 
+		//						pizzaDao.findAllPizzas().get(i).getLibelle() + " -> " +
+		//						pizzaDao.findAllPizzas().get(i).getCategorie() + " -> " +
+		//						prixFormatte + "€");
+		//			}
+		//		}
 
 	}
 
