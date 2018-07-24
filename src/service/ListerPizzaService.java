@@ -14,9 +14,9 @@ public class ListerPizzaService extends MenuService{
 
 	@Override
 	public void executeUC(Scanner scan, IPizzaDao pizzaDao) throws ListerPizzaException{
-		
+
 		int categorie;
-		
+
 		System.out.println("***** Liste des pizzas *****\n");
 
 		System.out.println("Veuillez choisir la catégorie :\n");
@@ -24,10 +24,9 @@ public class ListerPizzaService extends MenuService{
 		System.out.println("2. Poisson");
 		System.out.println("3. Sans viande");
 		System.out.println("4. Toutes les pizzas");
-
 		String categorieString = scan.nextLine();
+		
 		if (!(NumberUtils.isCreatable(categorieString))){
-			categorie = Integer.parseInt(categorieString); // bug Scanner
 			throw new ListerPizzaException("Catégorie non valide");
 		}		
 		else {
@@ -36,7 +35,7 @@ public class ListerPizzaService extends MenuService{
 				throw new ListerPizzaException("Catégorie non valide");				
 			}
 		}
-		
+
 
 		CategoriePizza selectedCategorie = CategoriePizza.valueOf(categorie);
 

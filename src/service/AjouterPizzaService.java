@@ -6,6 +6,8 @@ import org.apache.commons.lang3.math.NumberUtils;
 
 import fr.pizzeria.MemDao.IPizzaDao;
 import fr.pizzeria.exception.AjouterPizzaException;
+import fr.pizzeria.exception.ListerPizzaException;
+import fr.pizzeria.exception.ModifierPizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
@@ -19,6 +21,11 @@ public class AjouterPizzaService extends MenuService{
 		System.out.println("\n***** Ajout d'une nouvelle pizza *****\n");
 		System.out.println("Veuillez saisir le code :");
 		String newCode = sc.nextLine();
+		for (int i=0; i<pizzaDao.findAllPizzas().size();i++){
+			if (pizzaDao.findAllPizzas().get(i).getCode().equals(newCode)){
+				throw new AjouterPizzaException("Pizza déjà créée");
+			}
+		}
 		System.out.println("Veuillez saisir le nom :");
 		String newLibelle = sc.nextLine();
 		System.out.println("Veuillez saisir le prix :");
@@ -37,17 +44,19 @@ public class AjouterPizzaService extends MenuService{
 			System.out.println("1. Viande");
 			System.out.println("2. Poisson");
 			System.out.println("3. Sans viande");
-
 			String newCategorieString = sc.nextLine();
-			newCategorie = Integer.parseInt(newCategorieString);  // bug Scanner	
 
-			if (newCategorie < 1 || newCategorie > CategoriePizza.values().length){
+			if (!(NumberUtils.isCreatable(newCategorieString))){
 				throw new AjouterPizzaException("Catégorie non valide");
-			}
+			}		
 			else {
+				newCategorie = Integer.parseInt(newCategorieString); // bug Scanner
+				if (newCategorie < 1 || newCategorie > CategoriePizza.values().length){
+					throw new AjouterPizzaException("Catégorie non valide");				
+				}
+			}
 				Pizza newPizza = new Pizza(newCode, newLibelle, newPrix, CategoriePizza.valueOf(newCategorie));
 				pizzaDao.saveNewPizza(newPizza);
-			}
 
 		} while (newCategorie < 1 || newCategorie > CategoriePizza.values().length);
 
