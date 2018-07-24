@@ -6,21 +6,21 @@ public enum CategoriePizza {
 	POISSON ("Poisson"),
 	SANS_VIANDE ("Sans viande");
 
-	private String categorie = "";
+	private String libelle = "";
 
 	// Constructeur privé ??? 
 
 	private CategoriePizza (String categorie){
-		this.categorie = categorie;
+		this.libelle = categorie;
 	}
 
 
 	public String getCategorie() {
-		return categorie;
+		return libelle;
 	}
 
 	public void setCategorie(String categorie) {
-		this.categorie = categorie;
+		this.libelle = categorie;
 	}
 
 	public static CategoriePizza valueOf(int p) {
@@ -36,6 +36,20 @@ public enum CategoriePizza {
 		}
 		return null;
 	}
+
+	/*public static CategoriePizza valueOfLibelle(String libelle) {
+		CategoriePizza[] categs = values();
+		if (p==1) {
+			return categs [0];
+		}
+		if (p==2) {
+			return categs [1];
+		}
+		if (p==3) {
+			return categs [2];
+		}
+		return null;
+	}*/
 
 
 }
