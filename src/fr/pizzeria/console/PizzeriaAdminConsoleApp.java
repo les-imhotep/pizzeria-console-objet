@@ -23,7 +23,8 @@ public class PizzeriaAdminConsoleApp {
 
 		do{
 			Affichage.affichageMenu();
-			choix = sc.nextInt();
+			String choixString = sc.nextLine();
+			choix = Integer.parseInt(choixString);  // bug Scanner
 
 			switch (choix) {
 			case 1:

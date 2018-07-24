@@ -13,16 +13,33 @@ public class AjouterPizzaService extends MenuService{
 
 		System.out.println("***** Ajout d'une nouvelle pizza *****\n");
 		System.out.println("Veuillez saisir le code :");
-		String newCode = sc.next();
+		String newCode = sc.nextLine();
 		System.out.println("Veuillez saisir le nom (sans espace) :");
-		String newLibelle = sc.next();
+		String newLibelle = sc.nextLine();
 		System.out.println("Veuillez saisir le prix :");
-		String newPrixString = sc.next();
+		String newPrixString = sc.nextLine();
 		double newPrix = Double.parseDouble(newPrixString);  // bug Scanner
-		System.out.println("Veuillez saisir la catégorie :");
-		CategoriePizza newCategorie = CategoriePizza.valueOf(sc.next());;
-		Pizza newPizza = new Pizza(newCode, newLibelle, newPrix, newCategorie);
-		pizzaDao.saveNewPizza(newPizza);
+		
+		int newCategorie;
+
+		do {
+			System.out.println("\nVeuillez choisir la catégorie :\n");
+			System.out.println("1. Viande");
+			System.out.println("2. Poisson");
+			System.out.println("3. Sans viande");
+			
+			String newCategorieString = sc.nextLine();
+			newCategorie = Integer.parseInt(newCategorieString);  // bug Scanner
+			
+			Pizza newPizza = new Pizza(newCode, newLibelle, newPrix, CategoriePizza.valueOf(newCategorie));
+			pizzaDao.saveNewPizza(newPizza);
+			
+			if (newCategorie < 1 || newCategorie >= CategoriePizza.values().length-1 ){
+				System.out.println("Catégorie non valide");
+			}
+			
+			} while (newCategorie < 1 || newCategorie >= CategoriePizza.values().length-1);
+	
 	}
 
 }

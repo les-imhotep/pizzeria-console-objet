@@ -13,18 +13,34 @@ public class ModifierPizzaService extends MenuService{
 		
 		System.out.println("***** Mise à jour d'une pizza *****\n");
 		System.out.println("Veuillez choisir le code de la pizza à modifier :");
-		String codeAModifier = sc.next();
+		String codeAModifier = sc.nextLine();
 		System.out.println("Veuillez saisir le nouveau code :");
-		String codeModifie = sc.next();
+		String codeModifie = sc.nextLine();
 		System.out.println("Veuillez saisir le nouveau nom (sans espace) :");
-		String libelleModifie = sc.next();
+		String libelleModifie = sc.nextLine();
 		System.out.println("Veuillez saisir le nouveau prix :");
-		String prixModifieString = sc.next();
+		String prixModifieString = sc.nextLine();
 		double prixModifie = Double.parseDouble(prixModifieString);  // bug Scanner
-		System.out.println("Veuillez saisir la nouvelle catégorie :");
-		CategoriePizza categorieModifie = CategoriePizza.valueOf(sc.next());;
-		Pizza updatePizza = new Pizza(codeModifie, libelleModifie, prixModifie, categorieModifie);
-		pizzaDao.updatePizza(codeAModifier, updatePizza);		
+		
+		int categorieModifie;
+
+		do {
+			System.out.println("\nVeuillez choisir la catégorie :\n");
+			System.out.println("1. Viande");
+			System.out.println("2. Poisson");
+			System.out.println("3. Sans viande");
+			
+			String categorieModifieString = sc.nextLine();
+			categorieModifie = Integer.parseInt(categorieModifieString);  // bug Scanner
+			
+			Pizza updatePizza = new Pizza(codeModifie, libelleModifie, prixModifie, CategoriePizza.valueOf(categorieModifie));
+			pizzaDao.updatePizza(codeAModifier, updatePizza);
+			
+			if (categorieModifie < 1 || categorieModifie >= CategoriePizza.values().length-1 ){
+				System.out.println("Catégorie non valide");
+			}
+			
+			} while (categorieModifie < 1 || categorieModifie >= CategoriePizza.values().length-1);
 	}
 
 

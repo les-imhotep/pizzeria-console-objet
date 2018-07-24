@@ -14,7 +14,10 @@ public class ListerPizzaService extends MenuService{
 		System.out.println("***** Liste des pizzas *****\n");
 		for(int i=0; i<pizzaDao.findAllPizzas().size(); i++) {
 			String prixFormatte = StringUtils.format(pizzaDao.findAllPizzas().get(i).getPrix(), "0.00");
-			System.out.println(pizzaDao.findAllPizzas().get(i));
+			System.out.println(pizzaDao.findAllPizzas().get(i).getCode() + " -> " + 
+					pizzaDao.findAllPizzas().get(i).getLibelle() + " -> " +
+					pizzaDao.findAllPizzas().get(i).getCategorie() + " -> " +
+					prixFormatte + "€");
 		}
 		System.out.println("");
 
