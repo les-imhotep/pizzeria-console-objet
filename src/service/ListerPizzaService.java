@@ -45,7 +45,7 @@ public class ListerPizzaService extends MenuService{
 			if (selectedCategorie==null || pizzaDao.findAllPizzas().get(i).getCategorie().equals(selectedCategorie)){
 				System.out.println(pizzaDao.findAllPizzas().get(i).getCode() + " -> " + 
 						pizzaDao.findAllPizzas().get(i).getLibelle() + " -> " +
-						pizzaDao.findAllPizzas().get(i).getCategorie() + " -> " +
+						pizzaDao.findAllPizzas().get(i).getCategorie().getLibelle() + " -> " +
 						prixFormatte + "€");
 			}
 		}
