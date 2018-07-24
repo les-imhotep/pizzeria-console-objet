@@ -2,24 +2,34 @@ package service;
 
 import java.util.Scanner;
 
+import org.apache.commons.lang3.math.NumberUtils;
+
 import fr.pizzeria.MemDao.IPizzaDao;
+import fr.pizzeria.exception.AjouterPizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
 public class AjouterPizzaService extends MenuService{
 
 	@Override
-	public void executeUC(Scanner sc, IPizzaDao pizzaDao) {
+	public void executeUC(Scanner sc, IPizzaDao pizzaDao) throws AjouterPizzaException {
 
-		System.out.println("***** Ajout d'une nouvelle pizza *****\n");
+		double newPrix;
+
+		System.out.println("\n***** Ajout d'une nouvelle pizza *****\n");
 		System.out.println("Veuillez saisir le code :");
 		String newCode = sc.nextLine();
-		System.out.println("Veuillez saisir le nom (sans espace) :");
+		System.out.println("Veuillez saisir le nom :");
 		String newLibelle = sc.nextLine();
 		System.out.println("Veuillez saisir le prix :");
 		String newPrixString = sc.nextLine();
-		double newPrix = Double.parseDouble(newPrixString);  // bug Scanner
-		
+
+		if (!(NumberUtils.isCreatable(newPrixString))){
+			throw new AjouterPizzaException("Le prix n'est pas valide");
+		}
+		newPrix = Double.parseDouble(newPrixString);  // bug Scanner
+
+
 		int newCategorie;
 
 		do {
@@ -27,19 +37,20 @@ public class AjouterPizzaService extends MenuService{
 			System.out.println("1. Viande");
 			System.out.println("2. Poisson");
 			System.out.println("3. Sans viande");
-			
+
 			String newCategorieString = sc.nextLine();
-			newCategorie = Integer.parseInt(newCategorieString);  // bug Scanner
-			
-			Pizza newPizza = new Pizza(newCode, newLibelle, newPrix, CategoriePizza.valueOf(newCategorie));
-			pizzaDao.saveNewPizza(newPizza);
-			
-			if (newCategorie < 1 || newCategorie >= CategoriePizza.values().length-1 ){
-				System.out.println("Catégorie non valide");
+			newCategorie = Integer.parseInt(newCategorieString);  // bug Scanner	
+
+			if (newCategorie < 1 || newCategorie > CategoriePizza.values().length){
+				throw new AjouterPizzaException("Catégorie non valide");
 			}
-			
-			} while (newCategorie < 1 || newCategorie >= CategoriePizza.values().length-1);
-	
+			else {
+				Pizza newPizza = new Pizza(newCode, newLibelle, newPrix, CategoriePizza.valueOf(newCategorie));
+				pizzaDao.saveNewPizza(newPizza);
+			}
+
+		} while (newCategorie < 1 || newCategorie > CategoriePizza.values().length);
+
 	}
 
 }

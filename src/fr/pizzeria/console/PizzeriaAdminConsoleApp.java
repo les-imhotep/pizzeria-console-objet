@@ -3,6 +3,9 @@ package fr.pizzeria.console;
 import java.util.Scanner;
 
 import fr.pizzeria.MemDao.PizzaMemDao;
+import fr.pizzeria.exception.AjouterPizzaException;
+import fr.pizzeria.exception.ListerPizzaException;
+import fr.pizzeria.exception.ModifierPizzaException;
 import service.*;
 
 public class PizzeriaAdminConsoleApp {
@@ -28,18 +31,28 @@ public class PizzeriaAdminConsoleApp {
 
 			switch (choix) {
 			case 1:
-				listerPizza.executeUC(sc, pizzaMemDao);
+				try {
+					listerPizza.executeUC(sc, pizzaMemDao);
+				} catch (ListerPizzaException e) {
+					System.out.println(e.getMessage());
+				}
+
 				break;
 			case 2:
-				listerPizza.executeUC(sc, pizzaMemDao);
-			    ajouterPizza.executeUC(sc, pizzaMemDao);
+				try {
+					ajouterPizza.executeUC(sc, pizzaMemDao);
+				} catch (AjouterPizzaException e) {
+					System.out.println(e.getMessage());
+				}
 				break;
 			case 3:
-				listerPizza.executeUC(sc, pizzaMemDao);
-				modifierPizza.executeUC(sc, pizzaMemDao);
+				try {
+					modifierPizza.executeUC(sc, pizzaMemDao);
+				} catch (ModifierPizzaException e) {
+					System.out.println(e.getMessage());
+				}
 				break;
 			case 4:
-				listerPizza.executeUC(sc, pizzaMemDao);
 				supprimerPizza.executeUC(sc, pizzaMemDao);
 				break;
 			case 99:
