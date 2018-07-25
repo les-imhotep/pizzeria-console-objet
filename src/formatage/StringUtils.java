@@ -38,7 +38,7 @@ public class StringUtils {
 						valeurStr = valeur.toString().toUpperCase();
 					}
 					else if (valeur != null && !format.equals("")){
-						valeurStr = format(Double.parseDouble(valeur.toString()), format) +"€";
+						valeurStr = format(Double.parseDouble(valeur.toString()), format);
 					}
 					else if (valeur != null) {
 						valeurStr = valeur.toString();

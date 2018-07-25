@@ -39,29 +39,11 @@ public class ListerPizzaService extends MenuService{
 		CategoriePizza selectedCategorie = CategoriePizza.valueOf(categorie);
 
 		for(int i=0; i<pizzaDao.findAllPizzas().size(); i++) {
-			//String prixFormatte = StringUtils.format(pizzaDao.findAllPizzas().get(i).getPrix(), "0.00");
-
+			
 			if (selectedCategorie==null || pizzaDao.findAllPizzas().get(i).getCategorie().equals(selectedCategorie)){
 				System.out.println(pizzaDao.findAllPizzas().get(i));
 			}
 		}
-
-		//		System.out.println("Veuillez saisir la catégorie ");
-		//		System.out.println("(Viande, Poisson, Sans viande ou Toutes) :\n");
-		//		String libelle = scan.nextLine();
-		//
-		//		CategoriePizza selectedCategorie = CategoriePizza.valueOfLibelle(libelle);
-		//
-		//		for(int i=0; i<pizzaDao.findAllPizzas().size(); i++) {
-		//			String prixFormatte = StringUtils.format(pizzaDao.findAllPizzas().get(i).getPrix(), "0.00");
-		//
-		//			if (selectedCategorie==null || pizzaDao.findAllPizzas().get(i).getCategorie().equals(selectedCategorie)){
-		//				System.out.println(pizzaDao.findAllPizzas().get(i).getCode() + " -> " + 
-		//						pizzaDao.findAllPizzas().get(i).getLibelle() + " -> " +
-		//						pizzaDao.findAllPizzas().get(i).getCategorie() + " -> " +
-		//						prixFormatte + "€");
-		//			}
-		//		}
 
 	}
 

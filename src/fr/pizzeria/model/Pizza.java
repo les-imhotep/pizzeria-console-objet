@@ -14,7 +14,7 @@ public class Pizza {
 	@ToString (apres= " -> ", upperCase=false)
 	private String libelle;
 	
-	@ToString (apres= " -> ", format="0.00000")
+	@ToString (apres= "€ -> ", format="0.00")
 	private double prix;
 
 	@ToString (upperCase=false)

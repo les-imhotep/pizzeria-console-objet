@@ -4,7 +4,7 @@ public enum CategoriePizza {
 
 	VIANDE ("Viande"),
 	POISSON ("Poisson"),
-	SANS_VIANDE ("Sans viande");
+	VEGETARIEN ("Sans viande");
 
 	private String libelle = "";
 

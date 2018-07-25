@@ -13,14 +13,14 @@ public class PizzaMemDao implements IPizzaDao {
 	public PizzaMemDao () {
 		
 		pizzas = new ArrayList<Pizza>();
-		pizzas.add(new Pizza (0, "PEP", "Pépéroni", 12.50, CategoriePizza.VIANDE));
-		pizzas.add(new Pizza (1, "MAR", "Margherita", 14.00, CategoriePizza.SANS_VIANDE));
-		pizzas.add(new Pizza (2, "REI", "La Reine", 11.50, CategoriePizza.VIANDE));
-		pizzas.add(new Pizza (3, "FRO", "La 4 fromages", 12.00, CategoriePizza.SANS_VIANDE));
-		pizzas.add(new Pizza (4, "CAN", "La Cannibale", 12.50, CategoriePizza.VIANDE));
-		pizzas.add(new Pizza (5, "SAV", "La Savoyarde", 13.00, CategoriePizza.VIANDE));
-		pizzas.add(new Pizza (6, "ORI", "L'Orientale", 13.50, CategoriePizza.VIANDE));
-		pizzas.add(new Pizza (7, "IND", "L'indienne", 14.00, CategoriePizza.VIANDE));
+		pizzas.add(new Pizza (0, "pep", "Pépéroni", 12.50, CategoriePizza.VIANDE));
+		pizzas.add(new Pizza (1, "mar", "Margherita", 14.00, CategoriePizza.VEGETARIEN));
+		pizzas.add(new Pizza (2, "rei", "La Reine", 11.50, CategoriePizza.VIANDE));
+		pizzas.add(new Pizza (3, "fro", "La 4 fromages", 12.00, CategoriePizza.VEGETARIEN));
+		pizzas.add(new Pizza (4, "can", "La Cannibale", 12.50, CategoriePizza.VIANDE));
+		pizzas.add(new Pizza (5, "sav", "La Savoyarde", 13.00, CategoriePizza.VIANDE));
+		pizzas.add(new Pizza (6, "ori", "L'Orientale", 13.50, CategoriePizza.VIANDE));
+		pizzas.add(new Pizza (7, "ind", "L'indienne", 14.00, CategoriePizza.VIANDE));
 		
 	}
 
