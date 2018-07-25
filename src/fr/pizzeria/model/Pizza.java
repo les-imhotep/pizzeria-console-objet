@@ -1,6 +1,7 @@
 package fr.pizzeria.model;
 
-import formatage.StringUtils;
+import fr.pizzeria.utils.Rule;
+import fr.pizzeria.utils.StringUtils;
 import fr.pizzeria.utils.ToString;
 
 public class Pizza {
@@ -14,6 +15,7 @@ public class Pizza {
 	@ToString (apres= " -> ", upperCase=false)
 	private String libelle;
 	
+	@Rule (min=5)
 	@ToString (apres= "€ -> ", format="0.00")
 	private double prix;
 

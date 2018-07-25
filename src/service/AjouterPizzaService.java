@@ -6,13 +6,15 @@ import org.apache.commons.lang3.math.NumberUtils;
 
 import fr.pizzeria.MemDao.IPizzaDao;
 import fr.pizzeria.exception.AjouterPizzaException;
+import fr.pizzeria.exception.StockageException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
+import fr.pizzeria.utils.Validator;
 
 public class AjouterPizzaService extends MenuService{
 
 	@Override
-	public void executeUC(Scanner sc, IPizzaDao pizzaDao) throws AjouterPizzaException {
+	public void executeUC(Scanner sc, IPizzaDao pizzaDao) throws StockageException {
 
 		double newPrix;
 
@@ -54,6 +56,7 @@ public class AjouterPizzaService extends MenuService{
 				}
 			}
 				Pizza newPizza = new Pizza(newCode, newLibelle, newPrix, CategoriePizza.valueOf(newCategorie));
+				Validator.validator(newPizza);
 				pizzaDao.saveNewPizza(newPizza);
 
 		} while (newCategorie < 1 || newCategorie > CategoriePizza.values().length);

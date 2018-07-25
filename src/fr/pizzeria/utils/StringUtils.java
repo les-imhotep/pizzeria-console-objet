@@ -1,9 +1,7 @@
-package formatage;
+package fr.pizzeria.utils;
 
 import java.lang.reflect.Field;
 import java.text.DecimalFormat;
-
-import fr.pizzeria.utils.ToString;
 
 public class StringUtils {
 
@@ -53,4 +51,7 @@ public class StringUtils {
 		}
 		return chaine;
 	}
+	
+	
+	
 }

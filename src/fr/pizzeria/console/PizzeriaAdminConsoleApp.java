@@ -4,21 +4,17 @@ import java.util.Scanner;
 
 import org.apache.commons.lang3.math.NumberUtils;
 
+import fr.pizzeria.MemDao.IPizzaDao;
 import fr.pizzeria.MemDao.PizzaMemDao;
-import fr.pizzeria.exception.AjouterPizzaException;
-import fr.pizzeria.exception.ListerPizzaException;
-import fr.pizzeria.exception.ModifierPizzaException;
-import fr.pizzeria.exception.SupprimerPizzaException;
+import fr.pizzeria.exception.StockageException;
 import service.*;
 
 public class PizzeriaAdminConsoleApp {
 
-
-
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
-		PizzaMemDao pizzaMemDao = new PizzaMemDao();
+		IPizzaDao pizzaMemDao = new PizzaMemDao();
 		int choix;
 		String choixString;
 
@@ -27,47 +23,32 @@ public class PizzeriaAdminConsoleApp {
 		ModifierPizzaService modifierPizza = new ModifierPizzaService();
 		SupprimerPizzaService supprimerPizza = new SupprimerPizzaService();
 
-
-		do{
-			do{
+		do {
+			do {
 				Affichage.affichageMenu();
 				choixString = sc.nextLine();
-			}while(!(NumberUtils.isCreatable(choixString)));
-				choix = Integer.parseInt(choixString);  // bug Scanner
-
-			switch (choix) {
-			case 1:
-				try {
+			} while (!(NumberUtils.isCreatable(choixString)));
+			choix = Integer.parseInt(choixString); // bug Scanner
+			try {
+				switch (choix) {
+				case 1:
 					listerPizza.executeUC(sc, pizzaMemDao);
-				} catch (ListerPizzaException e) {
-					System.out.println(e.getMessage());
-				}
-
-				break;
-			case 2:
-				try {
+					break;
+				case 2:
 					ajouterPizza.executeUC(sc, pizzaMemDao);
-				} catch (AjouterPizzaException e) {
-					System.out.println(e.getMessage());
-				}
-				break;
-			case 3:
-				try {
+					break;
+				case 3:
 					modifierPizza.executeUC(sc, pizzaMemDao);
-				} catch (ModifierPizzaException e) {
-					System.out.println(e.getMessage());
-				}
-				break;
-			case 4:
-				try {
+					break;
+				case 4:
 					supprimerPizza.executeUC(sc, pizzaMemDao);
-				} catch (SupprimerPizzaException e) {
-					System.out.println(e.getMessage());
+					break;
+				case 99:
+					System.out.println("***** Au revoir *****");
+					break;
 				}
-				break;
-			case 99:
-				System.out.println("***** Au revoir *****");
-				break;
+			} catch (StockageException e) {
+				System.out.println(e.getMessage());
 			}
 		} while (choix != 99);
 		sc.close();
