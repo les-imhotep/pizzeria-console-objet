@@ -22,6 +22,7 @@ public class PizzeriaAdminConsoleApp {
 		AjouterPizzaService ajouterPizza = new AjouterPizzaService();
 		ModifierPizzaService modifierPizza = new ModifierPizzaService();
 		SupprimerPizzaService supprimerPizza = new SupprimerPizzaService();
+		ExporterPdfService exporterPdf = new ExporterPdfService();
 
 		do {
 			do {
@@ -42,6 +43,9 @@ public class PizzeriaAdminConsoleApp {
 					break;
 				case 4:
 					supprimerPizza.executeUC(sc, pizzaMemDao);
+					break;
+				case 5 :
+					exporterPdf.executeUC(sc, pizzaMemDao);
 					break;
 				case 99:
 					System.out.println("***** Au revoir *****");
