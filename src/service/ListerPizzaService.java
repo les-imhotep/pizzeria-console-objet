@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import org.apache.commons.lang3.math.NumberUtils;
 
-import formatage.StringUtils;
 import fr.pizzeria.MemDao.IPizzaDao;
 import fr.pizzeria.exception.ListerPizzaException;
 import fr.pizzeria.model.CategoriePizza;
@@ -40,13 +39,10 @@ public class ListerPizzaService extends MenuService{
 		CategoriePizza selectedCategorie = CategoriePizza.valueOf(categorie);
 
 		for(int i=0; i<pizzaDao.findAllPizzas().size(); i++) {
-			String prixFormatte = StringUtils.format(pizzaDao.findAllPizzas().get(i).getPrix(), "0.00");
+			//String prixFormatte = StringUtils.format(pizzaDao.findAllPizzas().get(i).getPrix(), "0.00");
 
 			if (selectedCategorie==null || pizzaDao.findAllPizzas().get(i).getCategorie().equals(selectedCategorie)){
-				System.out.println(pizzaDao.findAllPizzas().get(i).getCode() + " -> " + 
-						pizzaDao.findAllPizzas().get(i).getLibelle() + " -> " +
-						pizzaDao.findAllPizzas().get(i).getCategorie().getLibelle() + " -> " +
-						prixFormatte + "€");
+				System.out.println(pizzaDao.findAllPizzas().get(i));
 			}
 		}
 

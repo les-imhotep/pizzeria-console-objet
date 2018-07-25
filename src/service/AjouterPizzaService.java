@@ -6,8 +6,6 @@ import org.apache.commons.lang3.math.NumberUtils;
 
 import fr.pizzeria.MemDao.IPizzaDao;
 import fr.pizzeria.exception.AjouterPizzaException;
-import fr.pizzeria.exception.ListerPizzaException;
-import fr.pizzeria.exception.ModifierPizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
