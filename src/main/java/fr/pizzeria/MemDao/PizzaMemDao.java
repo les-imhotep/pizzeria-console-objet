@@ -7,9 +7,9 @@ import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
 public class PizzaMemDao implements IPizzaDao {
-	
+
 	private List<Pizza> pizzas;
-	
+
 	public List<Pizza> getPizzas() {
 		return pizzas;
 	}
@@ -19,7 +19,7 @@ public class PizzaMemDao implements IPizzaDao {
 	}
 
 	public PizzaMemDao () {
-		
+
 		pizzas = new ArrayList<Pizza>();
 		pizzas.add(new Pizza (0, "pep", "Pépéroni", 12.50, CategoriePizza.VIANDE));
 		pizzas.add(new Pizza (1, "mar", "Margherita", 14.00, CategoriePizza.VEGETARIEN));
@@ -29,7 +29,7 @@ public class PizzaMemDao implements IPizzaDao {
 		pizzas.add(new Pizza (5, "sav", "La Savoyarde", 13.00, CategoriePizza.VIANDE));
 		pizzas.add(new Pizza (6, "ori", "L'Orientale", 13.50, CategoriePizza.VIANDE));
 		pizzas.add(new Pizza (7, "ind", "L'indienne", 14.00, CategoriePizza.VIANDE));
-		
+
 	}
 
 	@Override
@@ -39,13 +39,13 @@ public class PizzaMemDao implements IPizzaDao {
 
 	@Override
 	public void saveNewPizza(Pizza pizza) {
-		
+
 		pizzas.add(pizza);		
 	}
 
 	@Override
 	public void updatePizza(String codePizza, Pizza pizza) {
-		
+
 		for (int i=0; i<pizzas.size(); i++) {
 			if (pizzas.get(i).getCode().equals(codePizza)){
 				pizzas.get(i).setCode(pizza.getCode());
@@ -54,29 +54,38 @@ public class PizzaMemDao implements IPizzaDao {
 				pizzas.get(i).setCategorie(pizza.getCategorie());
 			}
 		}
-		
+
 	}
 
 	@Override
 	public void deletePizza(String codePizza) {
-		
+
 		for (int i=0; i<pizzas.size(); i++) {
 			if (pizzas.get(i).getCode().equals(codePizza)){
 				pizzas.remove(i);
 			}
 		}
-		
+
 	}
 
 	@Override
 	public Pizza findPizzaByCode(String codePizza) {
-		// TODO Auto-generated method stub
+		for (int i=0;i<pizzas.size();i++){
+			if(pizzas.get(i).getCode().equals(codePizza)){
+				return pizzas.get(i);
+			}
+		}
 		return null;
 	}
 
 	@Override
 	public boolean pizzaExists(String codePizza) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean existe = false;
+		for(int i=0;i<pizzas.size();i++){
+			if(pizzas.get(i).getCode().equals(codePizza)){
+				existe = true;
+			}
+		}
+		return existe;
 	}
 }

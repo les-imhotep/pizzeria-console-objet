@@ -2,13 +2,8 @@ package fr.pizzeria.MemDao;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-
 import org.junit.Test;
 
-import com.itextpdf.text.List;
-
-import fr.pizzeria.exception.ModifierPizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
