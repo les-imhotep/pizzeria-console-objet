@@ -7,7 +7,7 @@ import org.apache.commons.lang3.math.NumberUtils;
 import fr.pizzeria.MemDao.IPizzaDao;
 import fr.pizzeria.MemDao.PizzaMemDao;
 import fr.pizzeria.exception.StockageException;
-import service.*;
+import fr.service.*;
 
 public class PizzeriaAdminConsoleApp {
 

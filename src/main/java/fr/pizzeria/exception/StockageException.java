@@ -1,5 +1,9 @@
 package fr.pizzeria.exception;
 
+import java.io.FileNotFoundException;
+
+import com.itextpdf.text.DocumentException;
+
 public class StockageException extends Exception{
 
 	/**
@@ -10,5 +14,6 @@ public class StockageException extends Exception{
 	public StockageException(String message) {
 		super(message);
 	}
+
 
 }

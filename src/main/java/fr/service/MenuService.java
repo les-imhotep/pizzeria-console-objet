@@ -1,4 +1,4 @@
-package service;
+package fr.service;
 
 import java.util.Scanner;
 
@@ -7,7 +7,7 @@ import fr.pizzeria.exception.StockageException;
 
 public abstract class MenuService {
 
-	abstract void executeUC(Scanner scanner, IPizzaDao interfacePizza)
-			throws StockageException;
+	void executeUC(Scanner scanner, IPizzaDao interfacePizza) throws StockageException {
 
+	}
 }

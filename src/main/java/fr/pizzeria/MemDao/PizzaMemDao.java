@@ -10,6 +10,14 @@ public class PizzaMemDao implements IPizzaDao {
 	
 	private List<Pizza> pizzas;
 	
+	public List<Pizza> getPizzas() {
+		return pizzas;
+	}
+
+	public void setPizzas(List<Pizza> pizzas) {
+		this.pizzas = pizzas;
+	}
+
 	public PizzaMemDao () {
 		
 		pizzas = new ArrayList<Pizza>();
