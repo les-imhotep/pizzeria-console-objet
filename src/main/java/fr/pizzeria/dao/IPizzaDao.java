@@ -1,4 +1,4 @@
-package fr.pizzeria.MemDao;
+package fr.pizzeria.dao;
 
 import java.util.List;
 

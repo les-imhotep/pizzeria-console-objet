@@ -1,4 +1,4 @@
-package fr.service;
+package fr.pizzeria.console.service;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -12,7 +12,7 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import fr.pizzeria.MemDao.IPizzaDao;
+import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.exception.StockageException;
 
 public class ExporterPdfService extends MenuService {

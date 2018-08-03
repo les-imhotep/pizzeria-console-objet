@@ -1,8 +1,8 @@
-package fr.service;
+package fr.pizzeria.console.service;
 
 import java.util.Scanner;
 
-import fr.pizzeria.MemDao.IPizzaDao;
+import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.exception.SupprimerPizzaException;
 
 public class SupprimerPizzaService extends MenuService{
@@ -13,7 +13,7 @@ public class SupprimerPizzaService extends MenuService{
 		int compteur=0;
 		
 		System.out.println("***** Suppression d'une pizza *****\n");
-		System.out.println("Veuillez choisir le code de la pizza à supprimer :");
+		System.out.println("Veuillez choisir le code de la pizza ï¿½ supprimer :");
 		String codeASupprimer = sc.nextLine();
 		
 		for (int i=0; i<pizzaDao.findAllPizzas().size();i++){

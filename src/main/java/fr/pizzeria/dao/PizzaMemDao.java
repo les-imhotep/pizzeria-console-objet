@@ -1,4 +1,4 @@
-package fr.pizzeria.MemDao;
+package fr.pizzeria.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ public class PizzaMemDao implements IPizzaDao {
 	public PizzaMemDao () {
 
 		pizzas = new ArrayList<Pizza>();
-		pizzas.add(new Pizza (0, "pep", "Pépéroni", 12.50, CategoriePizza.VIANDE));
+		pizzas.add(new Pizza (0, "pep", "Pï¿½pï¿½roni", 12.50, CategoriePizza.VIANDE));
 		pizzas.add(new Pizza (1, "mar", "Margherita", 14.00, CategoriePizza.VEGETARIEN));
 		pizzas.add(new Pizza (2, "rei", "La Reine", 11.50, CategoriePizza.VIANDE));
 		pizzas.add(new Pizza (3, "fro", "La 4 fromages", 12.00, CategoriePizza.VEGETARIEN));

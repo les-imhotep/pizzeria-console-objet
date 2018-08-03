@@ -9,13 +9,14 @@ import static org.junit.contrib.java.lang.system.TextFromStandardInputStream.*;
 
 import java.util.Scanner;
 
-import fr.pizzeria.MemDao.PizzaMemDao;
+import fr.pizzeria.console.service.AjouterPizzaService;
+import fr.pizzeria.dao.PizzaMemDao;
 import fr.pizzeria.exception.StockageException;
 
 public class AjouterPizzaServiceTest {
 
-	/** Création d'une "Rule" qui va permettre
-	 * de substituer le System.in utilisé par le Scanner
+	/** Crï¿½ation d'une "Rule" qui va permettre
+	 * de substituer le System.in utilisï¿½ par le Scanner
 	 * par un mock: systemInMock */
 	@Rule
 	public TextFromStandardInputStream systemInMock = emptyStandardInputStream();

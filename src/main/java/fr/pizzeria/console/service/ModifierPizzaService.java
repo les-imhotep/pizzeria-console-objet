@@ -1,10 +1,10 @@
-package fr.service;
+package fr.pizzeria.console.service;
 
 import java.util.Scanner;
 
 import org.apache.commons.lang3.math.NumberUtils;
 
-import fr.pizzeria.MemDao.IPizzaDao;
+import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.exception.ModifierPizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
@@ -17,8 +17,8 @@ public class ModifierPizzaService extends MenuService{
 		double prixModifie;
 		int compteur=0;
 		
-		System.out.println("***** Mise à jour d'une pizza *****\n");
-		System.out.println("Veuillez choisir le code de la pizza à modifier :");
+		System.out.println("***** Mise ï¿½ jour d'une pizza *****\n");
+		System.out.println("Veuillez choisir le code de la pizza ï¿½ modifier :");
 		String codeAModifier = sc.nextLine();
 		for (int i=0; i<pizzaDao.findAllPizzas().size();i++){
 			if (!(pizzaDao.findAllPizzas().get(i).getCode().equals(codeAModifier))){
@@ -44,19 +44,19 @@ public class ModifierPizzaService extends MenuService{
 		int categorieModifie;
 
 		do {
-			System.out.println("\nVeuillez choisir la catégorie :\n");
+			System.out.println("\nVeuillez choisir la catï¿½gorie :\n");
 			System.out.println("1. Viande");
 			System.out.println("2. Poisson");
 			System.out.println("3. Sans viande");
 			String categorieModifieString = sc.nextLine();
 			
 			if (!(NumberUtils.isCreatable(categorieModifieString))){
-				throw new ModifierPizzaException("Catégorie non valide");
+				throw new ModifierPizzaException("Catï¿½gorie non valide");
 			}		
 			else {
 				categorieModifie = Integer.parseInt(categorieModifieString); // bug Scanner
 				if (categorieModifie < 1 || categorieModifie > CategoriePizza.values().length){
-					throw new ModifierPizzaException("Catégorie non valide");				
+					throw new ModifierPizzaException("Catï¿½gorie non valide");				
 				}
 			}
 				Pizza updatePizza = new Pizza(codeModifie, libelleModifie, prixModifie, CategoriePizza.valueOf(categorieModifie));

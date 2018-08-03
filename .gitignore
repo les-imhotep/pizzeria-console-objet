@@ -1,0 +1,15 @@
+# export
+*.pdf
+
+# idea
+.idea
+*.iml
+
+# eclipse
+bin
+.project
+.settings
+.classpath
+
+# maven
+target
