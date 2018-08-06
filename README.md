@@ -42,4 +42,8 @@ Cette application est conçue sur une architecture 2-tiers :
 ![](images/architecture.jpg)
 	
 	
+## A propos de moi
+
+PHOTO + une petite bio
+	
 
