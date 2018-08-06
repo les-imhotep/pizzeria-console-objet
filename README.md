@@ -15,6 +15,7 @@ Veuillez sélectionner une action : _
 ```
 
 ## Utilisation
+* Il s'agit d'un projet Maven, vous pouvez l'importer en tant que tel dans votre IDE.
 
 * La classe `main` a exécuté est `fr.pizzeria.console.PizzeriaAdminConsoleApp`.
 
