@@ -2,7 +2,7 @@
 
 L'objectif est de créer une application Java qui permet d'administrer une pizzéria en mode console.
 
-Exemple de menu :
+Menu :
 
 ```
 ** Application Pizzeria **
@@ -14,6 +14,26 @@ Exemple de menu :
 Veuillez sélectionner une action : _
 ```
 
+## Utilisation
+
+* La classe `main` a exécuté est `fr.pizzeria.console.PizzeriaAdminConsoleApp`.
+
+* Dans la classe `fr.pizzeria.console.PizzeriaAdminConsoleApp`, il est possible de choisir l'implémentation de la couche persistance :
+
+```java
+public class PizzeriaAdminConsoleApp {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		
+		// ici vous pouvez choisir une autre implémentation Dao
+		// par exemple : new PizzaJdbcDao()
+		IPizzaDao pizzaMemDao = new PizzaMemDao();
+
+```
+
+## Architecture
 Cette application est conçue sur une architecture 2-tiers :
 * **Une couche IHM** : partie console responsable de l'intéraction avec l'utilisateur
 * **Une couche Persistance** : responsable du stockage des données
